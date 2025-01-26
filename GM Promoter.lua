@@ -12,6 +12,10 @@ function onload()
 end
 
 function takeGMSeat(obj, color)
-    printToAll(Player[color].steam_name .. " moved to the GM seat.", {r=255, g=0, b=0})
-    Player[color].changeColor("Black")
+    if Player["Black"].seated == false then
+        printToAll(Player[color].steam_name .. " moved to the GM seat.", {r=255, g=0, b=0})
+        Player[color].changeColor("Black")
+    else
+        printToColor(Player["Black"].steam_name.." is already in the GM seat.", color)
+    end
 end
